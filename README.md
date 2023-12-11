@@ -1,4 +1,4 @@
-# Flights Portal App
+
 A Flights Portal App with C# ASP.NET for backend, Angular 14 for frontend and MS SQL for database.
 <hr>
 <b>Home page</b><br>
