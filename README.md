@@ -3,7 +3,8 @@ A Flight Portal App with C# ASP.NET for backend, Angular 14 for frontend and MS 
 <hr>
 <b>Home page</b>
 <hr>
-C:\Users\savva\OneDrive\Υπολογιστής\Home.png
+![Home](https://github.com/AmpatzidisSavvas/FlightsPortalApp/assets/134397286/f795d48a-dd69-41c0-907a-ec672a7cc5f5)
+
 <hr>
 <b>Choose a flight:scroll down or type the name at search input </b>
 <hr>
