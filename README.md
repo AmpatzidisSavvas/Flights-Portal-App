@@ -3,8 +3,6 @@ A Flights Portal App with C# ASP.NET for backend, Angular 14 for frontend and MS
 <hr>
 <b>Home page</b>
 ![Home](https://github.com/AmpatzidisSavvas/FlightsPortalApp/assets/134397286/f795d48a-dd69-41c0-907a-ec672a7cc5f5)
-![Home](https://github.com/AmpatzidisSavvas/FlightsPortalApp/assets/134397286/c9fcb37a-00f4-4ad3-9859-933a47afe301)
-
 <hr>
 <b>Choose a flight: Scroll down or type the name at search input </b>
 ![choose](https://github.com/AmpatzidisSavvas/FlightsPortalApp/assets/134397286/53cef622-1c96-4e0a-a822-519e241d61a8)
