@@ -1,0 +1,154 @@
+<div class="d-flex justify-content-center align-items-center">
+  <svg class="search-icon text-md-center" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" xml:space="preserve"><path fill="#18CEF6" d="M56.118 36.313c0-10.748-8.888-19.462-19.853-19.462-10.965 0-19.853 8.714-19.853 19.462 0 10.75 8.888 19.462 19.853 19.462 10.965 0 19.853-8.713 19.853-19.462zm-28.259-.759c-2.765 0-5.008-2.199-5.008-4.91 0-2.711 2.242-4.909 5.008-4.909 2.765 0 5.008 2.198 5.008 4.909 0 2.71-2.243 4.91-5.008 4.91zm36.366 25.248c-.477-1.052-12.162-12.157-12.162-12.157L49.798 51.1s11.565 10.988 12.043 11.572c.477.584 2.861-.818 2.384-1.87z" /><path fill="#233251" d="m64.416 59.511-11.35-11.127c2.888-3.749 4.602-8.414 4.603-13.473-.002-12.362-10.224-22.385-22.835-22.385-12.61 0-22.832 10.023-22.833 22.385.002 12.362 10.224 22.383 22.833 22.385 5.516-.001 10.575-1.919 14.522-5.111l11.267 11.047c.52.51 1.211.769 1.895.768h.006c.681 0 1.37-.259 1.89-.768a2.613 2.613 0 0 0 .787-1.861c0-.668-.263-1.348-.785-1.86zM14.147 34.91c.02-11.199 9.262-20.261 20.686-20.281 11.426.021 20.667 9.082 20.688 20.281-.021 11.2-9.262 20.26-20.687 20.28-11.425-.02-20.667-9.08-20.687-20.28zm48.747 26.837a.536.536 0 0 1-.377.149.526.526 0 0 1-.377-.154L50.945 50.769c.254-.247.501-.502.743-.761L62.899 61a.522.522 0 0 1-.005.747z" /></svg>
+
+  <h5 class="text-md-center m-1">Search for Flights</h5>
+
+</div>
+
+<form [formGroup]="searchForm" (ngSubmit)="search()">
+  <div class="m-5 d-grid gap-3">
+
+    <div class="row">
+
+      <div class="col">
+        <div class="form-floating">
+          <input formControlName="from" placeholder="From" class="form-control" />
+          <label class="text-primary form-label">From</label>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-floating">
+          <input formControlName="destination" placeholder="Destination" class="form-control" />
+          <label class="text-primary form-label">Destination</label>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col">
+        <div class="form-floating">
+          <input formControlName="fromDate" type="date" placeholder="From Date" class="form-control" />
+          <label class="text-primary form-label">From Date</label>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-floating">
+          <input formControlName="toDate" type="date" placeholder="To Date" class="form-control" />
+          <label class="text-primary form-label">To Date</label>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col text-end">
+        <label class="form-label text-primary mt-2">
+          Number of Passengers
+        </label>
+      </div>
+
+      <div class="col">
+        <div class="input-group">
+          <div class="input-group-text">For</div>
+          <input formControlName="numberOfPassengers" class="form-control" type="number" placeholder="1" />
+          <div class="input-group-text">Passengers</div>
+
+          <button type="submit" class="btn-primary btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</form>
+
+
+
+<div *ngFor="let flight of searchResult">
+  <div class="card text-dark mt-5 text-center">
+    <div class="card-body" style="padding: 20px; background-color:#e5ecf26e">
+      <h6 class="card-title">{{flight.airline}}</h6>
+      <div class="card-title" style="color:#ff3939">
+        {{flight.remainingNumberOfSeats}} remaining seats
+      </div>
+
+      <div class="d-grid text-center g-2">
+        <div class="row">
+          <div class="col">
+
+            <div class="col m-3">
+              <i class="text-primary fas fa-plane-departure" style="font-size:20px;"></i>
+            </div>
+
+            <div class="col">
+              <i class="fa-solid fa-location-dot">
+                {{flight.departure?.place}}
+              </i>
+            </div>
+
+            <div class="col m-2">
+              <i class="fa-regular"></i>
+              {{flight.departure?.time | date }}
+            </div>
+
+            <div class="col">
+              <i class="fa-regular fa-clock"></i>
+              {{flight.departure?.time | date:'shortTime' }}
+            </div>
+
+
+          </div>
+
+          <div class="col">
+            <div style="display:flex;">
+              <i class="fa-solid fa-circle" style="margin-top:50px; font-size:9px;"></i>
+              <hr style="display:block; width: 100%; margin-top:55px;" />
+              <i class="fas fa-plane" style="margin-top:48px;"></i>
+            </div>
+
+            <i class="fa-solid fa-euro-sign">{{flight.price}}</i>
+            <br />
+            <a [routerLink]="['/book-flight',flight.id]" class="btn btn-primary btn-lg mt-2">
+              <i class="fas fa-ticket"></i>
+              Book
+            </a>
+          </div>
+
+          <div class="col">
+            <div class="col m-3">
+              <i class="text-primary fas fa-plane-arrival" style="font-size:20px;"></i>
+            </div>
+
+            <div class="col">
+              <i class="fa-solid fa-location-dot">
+                {{flight.arrival?.place}}
+              </i>
+            </div>
+
+            <div class="col m-2">
+              <i class="fa-regular"></i>
+              {{flight.arrival?.time | date }}
+            </div>
+
+            <div class="col">
+              <i class="fa-regular fa-clock"></i>
+              {{flight.arrival?.time | date:'shortTime' }}
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

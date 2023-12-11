@@ -1,0 +1,116 @@
+
+
+<div class="d-flex flex-column align-items-center text-center">
+  <svg class="book-flight-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <defs>
+      <style>
+        .cls-1 {
+          fill: #e8f3ff
+        }
+
+        .cls-5 {
+          fill: #2e58ff
+        }
+      </style>
+    </defs>
+    <g id="Flight_informastion" data-name="Flight informastion"><path class="cls-1" d="M10.89 0H21v10H10.89zM43 0h10.11v10H43z" /><path d="M2 26h60v32a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V26z" style="fill:#8bc4ff" /><path d="M6 10h40v16H2V14a4 4 0 0 1 4-4z" style="fill:#a2d0ff" /><path d="M46 10h12a4 4 0 0 1 4 4v12H46V10z" style="fill:#d1e7ff" /><path class="cls-5" d="M58 8h-3V2a2 2 0 0 0-4 0v6h-6V2a2 2 0 0 0-4 0v6H23V2a2 2 0 0 0-4 0v6h-6V2a2 2 0 0 0-4 0v6H6a6 6 0 0 0-6 6v44a6 6 0 0 0 6 6h52a6 6 0 0 0 6-6V14a6 6 0 0 0-6-6zm0 4a2 2 0 0 1 2 2v10H48V12zM4 14a2 2 0 0 1 2-2h38v12H4zm56 44a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V28h56z" /><path class="cls-5" d="M38 16H10a2 2 0 0 0 0 4h28a2 2 0 0 0 0-4zM45 36v2.08l-6.3 5.4a2 2 0 1 0 2.6 3l3.7-3.13V48l-3.2 2.4a2 2 0 0 0 2.4 3.2l2.8-2.1 2.8 2.1a2 2 0 1 0 2.4-3.2L49 48v-4.65l3.7 3.17a2 2 0 1 0 2.6-3L49 38.08V36a2 2 0 0 0-4 0zM30 32H10a2 2 0 0 0 0 4h20a2 2 0 0 0 0-4zM30 41H10a2 2 0 0 0 0 4h20a2 2 0 0 0 0-4zM30 50H10a2 2 0 0 0 0 4h20a2 2 0 0 0 0-4z" /></g>
+  </svg>
+  <h5 class="text-md-center m-2">Book Flight</h5>
+</div>
+
+<div class="card-body text-center" style="padding: 20px; background-color:#e5ecf26e">
+  <h6 class="card-title ">{{flight.airline}}</h6>
+  <div class="card-title" style="color: #ff3939">{{flight.remainingNumberOfSeats}} remaining seats</div>
+  <div class="d-grid text-center g-2">
+    <div class="row">
+      <div class="col">
+        <div class="col m-3">
+
+          <i class="text-primary fas fa-plane-departure" style="font-size: 20px;"></i>
+        </div>
+        <div class="col">
+          <i class="fa-solid fa-location-dot">
+            {{flight.departure?.place}}
+          </i>
+
+        </div>
+        <div class="col m-2">
+          <i class="fa-regular"></i>
+          {{flight.departure?.time | date}}
+
+        </div>
+        <div class="col">
+
+          <i class="fa-regular fa-clock">
+            {{flight.departure?.time | date:'shortTime'}}
+          </i>
+        </div>
+      </div>
+
+      <div class="col">
+        <div style="display: flex;">
+          <i class="fa-solid  fa-circle" style="margin-top:51px; font-size: 9px;"></i>
+          <hr style="display:block;width: 100%;margin-top: 55px;">
+          <i class="fas fa-plane" style="margin-top: 48px;"></i>
+
+
+        </div>
+        <i class="fa-solid fa-euro-sign" aria-hidden="true">{{flight.price}}</i>
+        <br>
+
+      </div>
+      <div class="col">
+        <div class="col m-3">
+          <i class="text-primary fas fa-plane-arrival" style="font-size: 20px;"></i>
+
+        </div>
+        <div class="col">
+
+          <i class="fa-solid fa-location-dot">
+            {{flight.arrival?.place}}
+          </i>
+        </div>
+        <div class="col m-2 text-primary">
+          <i class="fa-regular "></i>
+          {{flight.arrival?.time | date}}
+
+        </div>
+        <div class="col">
+          <i class="fa-regular fa-clock">
+            {{flight.arrival?.time | date:'shortTime'}}
+          </i>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card-footer d-flex justify-content-center">
+
+  <form [formGroup]="form" (ngSubmit)="book()">
+    <label class="form-label mt-5" for="numberOfSeats">Number of Seats</label>
+    <div class="center input-group">
+
+      <input formControlName="number" type="number" class="form-control" id="numberOfSeats" name="numberOfSeats"
+             placeholder="Number of Seats" />
+      <button type="submit" class="btn btn-primary">
+        <i class="fas fa-ticket"></i>
+        Book
+      </button>
+    </div>
+  </form>
+
+</div>
+
+<div *ngIf="number.invalid && (number.dirty || number.touched)" class="invalid-feedback d-block">
+  <div *ngIf="number.errors?.['required']">
+    How many people do you want to book the flight for?
+  </div>
+  <div *ngIf="number.errors?.['min']">
+    You can not book for less than 1 passenger!
+  </div>
+  <div *ngIf="number.errors?.['max']">
+    Our planes do not have more than 254 seats.
+  </div>
+</div>
