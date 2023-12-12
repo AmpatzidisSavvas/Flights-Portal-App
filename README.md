@@ -9,6 +9,7 @@ A Flights Portal App with C# ASP.NET for backend, Angular 14 for frontend and MS
 
 
 <b>Login/Register page</b>
+![Login](https://github.com/AmpatzidisSavvas/FlightsPortalApp/assets/134397286/8581ea5b-2633-449a-ad0f-12b1533e2ed6)
 
 
 <b>My Bokings page</b>
