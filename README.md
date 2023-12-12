@@ -1,6 +1,7 @@
 A Flights Portal App with C# ASP.NET for backend, Angular 14 for frontend and MS SQL for database.
 
 <b>Home page</b>
+![Home](https://github.com/AmpatzidisSavvas/FlightsPortalApp/assets/134397286/04d6eeb1-d587-469a-8ca3-c0ac80aa1c43)
 
 
 <b>Choose a flight: Scroll down or type the name at search input</b>
