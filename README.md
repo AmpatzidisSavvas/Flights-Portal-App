@@ -12,6 +12,7 @@ A Flights Portal App with C# ASP.NET for backend, Angular 14 for frontend and MS
 ![Login](https://github.com/AmpatzidisSavvas/FlightsPortalApp/assets/134397286/8581ea5b-2633-449a-ad0f-12b1533e2ed6)
 
 <b>Book a Flight</b>
+![book-flight](https://github.com/AmpatzidisSavvas/FlightsPortalApp/assets/134397286/150d6757-b547-487a-92db-bf049d1d2045)
 
 <b>My Bookings Page</b>
 ![my-bookings](https://github.com/AmpatzidisSavvas/FlightsPortalApp/assets/134397286/0a913961-23b1-419d-ab48-fe195ff6bd75)
