@@ -1,4 +1,4 @@
-<div>
+<div style="text-align: center; margin-bottom: 2px;>
   A Flights Portal App with C# ASP.NET for backend, Angular 14 for frontend and MS SQL for database.
   
   <b>Home page</b>
